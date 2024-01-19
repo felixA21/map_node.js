@@ -1,3 +1,5 @@
+require("dotenv").config();
+const PASSWORD = process.env.PASSWORD;
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -28,7 +30,7 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    "mongodb+srv://limoncelli:limoncelli@cluster0.wtksviv.mongodb.net/places?retryWrites=true&w=majority"
+    `mongodb+srv://limoncelli:${PASSWORD}@cluster0.wtksviv.mongodb.net/places?retryWrites=true&w=majority`
   )
   .then(() => {
     app.listen(5000);
