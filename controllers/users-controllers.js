@@ -52,8 +52,7 @@ const signup = async (req, res, next) => {
   const createdUser = new User({
     name,
     email,
-    image:
-      "https://preview.redd.it/rm4lcf37idyb1.jpg?width=1024&format=pjpg&auto=webp&s=bb3c6c3f4e5e62c26e878a1abd41a4baf7e53407",
+    image: req.file.path,
     password,
     places: []
   });
