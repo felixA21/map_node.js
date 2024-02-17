@@ -168,6 +168,7 @@ const deletePlace = async (req, res, next) => {
     const error = new HttpError("Could not find place for this id", 404);
     return next(error);
   }
+
   const imagePath = place.image;
   try {
     const sess = await mongoose.startSession();
@@ -183,6 +184,12 @@ const deletePlace = async (req, res, next) => {
     );
     return next(error);
   }
+
+  // if (place.creator.toString() !== req.userData.userId) {
+  //   const error = new HttpError("You are not allowed to edit place", 401);
+  //   return next(error);
+  // }
+
   fs.unlink(imagePath, (err) => {
     console.log(err);
   });
