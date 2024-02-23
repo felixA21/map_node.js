@@ -50,8 +50,7 @@ app.use((error, req, res, next) => {
   res.json({ message: error.message || "An unknown error occurred!" });
 });
 
-const uri =
-  "mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.wtksviv.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority";
+const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.wtksviv.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
