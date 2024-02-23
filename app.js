@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/places", placesRoutes); // => /api/places...
+app.use("/api/places", placesRoutes);
 app.use("/api/users", usersRoutes);
 
 app.use((req, res, next) => {
@@ -42,7 +42,6 @@ app.use((error, req, res, next) => {
       console.log(err);
     });
   }
-
   if (res.headerSent) {
     return next(error);
   }
